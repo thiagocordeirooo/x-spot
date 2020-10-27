@@ -1,0 +1,47 @@
+@import "./colors.scss";
+@import "./typography.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: $background-default;
+  color: $secondary-text-color;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 24px 64px;
+}
+
+@media (max-width: 400px) {
+  .main-container {
+    padding: 24px 16px;
+  }
+}
+
+// Custom scrollbars
+::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: $secondary-text-color;
+}
+::-webkit-scrollbar-track {
+  background: $primary-text-color;
+}

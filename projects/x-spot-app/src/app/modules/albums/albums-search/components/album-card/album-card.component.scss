@@ -1,0 +1,34 @@
+.album-card__root {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 200px;
+  margin: 32px;
+
+  .album-card__image {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .album-card__details {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+
+    > span {
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

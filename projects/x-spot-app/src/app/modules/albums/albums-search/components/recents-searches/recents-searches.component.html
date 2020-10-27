@@ -1,0 +1,8 @@
+<div class="recents-searches__root">
+  <span class="typography-3"> Álbuns buscados recentemente</span>
+  <div class="recents-searches__list">
+    <app-album-card *ngFor="let album of albums" [album]="album"></app-album-card>
+  </div>
+
+  <span *ngIf="!albums?.length" class="typography-5 typography-center"> Você ainda não tem nenhuma busca rencente </span>
+</div>

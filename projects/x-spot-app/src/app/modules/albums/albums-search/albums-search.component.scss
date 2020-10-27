@@ -1,0 +1,41 @@
+@import "../../../../../../x-spot-lib/src/styles/colors.scss";
+
+.albums-search__root {
+  display: flex;
+  flex-direction: column;
+
+  .albums-search__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .albums-search__results-searched-for {
+    margin-top: 24px;
+  }
+
+  .albums-search__empty {
+    margin: 48px;
+  }
+}
+
+.albums-search__input {
+  display: flex;
+  flex-direction: column;
+  color: $primary-text-color;
+
+  & > label {
+    padding-left: 4px;
+  }
+
+  & > input {
+    height: 48px;
+    padding: 4px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 32px;
+    color: $primary-text-color;
+    border-bottom: 1px solid $primary-text-color;
+  }
+}

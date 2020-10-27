@@ -1,0 +1,16 @@
+<div class="album-details-player__root">
+  <div class="album-details-player__container">
+    <span *ngIf="!previewDisabled" class="typography-5 typography-center">{{ currentTrack?.name }}</span>
+    <span *ngIf="previewDisabled" class="typography-5 typography-secondary-color typography-center">
+      Preview indisponível ;(
+    </span>
+    <div class="album-details-player__buttons">
+      <x-spot-button size="small" [disabled]="previewDisabled" (click)="play()" title="Play">
+        <img src="assets/images/play_button.svg" class="album-details-player__button__image" alt="Botão de play" />
+      </x-spot-button>
+      <x-spot-button size="small" [disabled]="previewDisabled" (click)="pause()" title="Pausar">
+        <img src="assets/images/pause_button.svg" class="album-details-player__button__image" alt="Botão de pausar" />
+      </x-spot-button>
+    </div>
+  </div>
+</div>

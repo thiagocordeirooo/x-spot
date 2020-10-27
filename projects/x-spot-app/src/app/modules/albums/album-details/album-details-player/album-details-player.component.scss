@@ -1,0 +1,36 @@
+@import "../../../../../../../x-spot-lib/src/styles/colors.scss";
+
+.album-details-player__root {
+  background-color: $background-player;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+
+  .album-details-player__container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      margin: 8px;
+    }
+  }
+
+  .album-details-player__buttons {
+    & > * {
+      margin: 8px;
+    }
+
+    .album-details-player__button__image {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

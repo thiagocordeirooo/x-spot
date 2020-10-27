@@ -1,0 +1,31 @@
+<div class="album-details__back">
+  <a routerLink="/albums" class="typography-4">Voltar</a>
+</div>
+
+<div class="album-details__root">
+  <div class="album-details__infos">
+    <img [src]="album?.images[0].url" class="album-details__image" />
+    <span class="typography-5 typography-center">
+      {{ album?.name }}
+    </span>
+    <span class="typography-5 typography-secondary-color typography-center">
+      {{ album?.artists[0]?.name }}
+    </span>
+  </div>
+  <div class="album-details__tracks">
+    <ol>
+      <li *ngFor="let track of album?.tracks?.items" (click)="playTrack(track)">
+        <div
+          class="album-details__track-item"
+          [class.album-details__track-item-active]="track?.id === currentTrack?.id"
+        >
+          <span class="typography-5 typography-ellipsis">{{ track?.name }}</span>
+          &nbsp; &nbsp;
+          <span class="typography-5">{{ msToTime(track?.duration_ms) }}</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<app-album-details-player [currentTrack]="currentTrack"></app-album-details-player>

@@ -1,0 +1,48 @@
+@import "../../../../../../x-spot-lib/src/styles/colors.scss";
+
+.album-details__back {
+  margin-bottom: 24px;
+}
+
+.album-details__root {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 120px;
+
+  .album-details__infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 3;
+
+    .album-details__image {
+      width: 300px;
+    }
+
+    & > span {
+      margin-top: 8px;
+    }
+  }
+
+  .album-details__tracks {
+    flex: 4;
+    min-width: 300px;
+    margin-left: 48px;
+
+    .album-details__track-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px;
+      cursor: pointer;
+
+      &:hover > span {
+        color: $secondary-text-color !important;
+      }
+    }
+
+    .album-details__track-item-active > span {
+      color: $primary-color;
+    }
+  }
+}

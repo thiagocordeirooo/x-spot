@@ -1,0 +1,6 @@
+<header *ngIf="spotifyUser" class="header__root">
+  <img src="assets/images/spotify-icon.png" class="header__logo" />
+
+  <img [src]="spotifyUser?.images[0]?.url" class="header__avatar" />
+  <a class="typography-5" (click)="logOut()">Sair</a>
+</header>

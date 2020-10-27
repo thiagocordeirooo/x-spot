@@ -1,0 +1,27 @@
+.header__root {
+  height: 64px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 24px;
+  max-width: 1280px;
+  margin: auto;
+
+  .header__logo {
+    width: 40px;
+    height: auto;
+    margin-right: auto;
+  }
+
+  .header__avatar {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  & > a {
+    margin-left: 16px;
+    cursor: pointer;
+  }
+}

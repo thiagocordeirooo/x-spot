@@ -1,0 +1,22 @@
+<div class="albums-search__root">
+  <app-input-album-search></app-input-album-search>
+
+  <span
+    *ngIf="(albumsReducer$ | async)?.searchTerm && !!(albumsReducer$ | async)?.albums?.length"
+    class="typography-3 albums-search__results-searched-for"
+  >
+    Resultados encontrados para "{{ (albumsReducer$ | async)?.searchTerm }}"
+  </span>
+  <div class="albums-search__list">
+    <app-album-card *ngFor="let album of (albumsReducer$ | async)?.albums" [album]="album"></app-album-card>
+  </div>
+
+  <span
+    *ngIf="(albumsReducer$ | async)?.searchTerm && !(albumsReducer$ | async)?.albums?.length"
+    class="typography-2 typography-center albums-search__empty"
+  >
+    Nenhum resultado encontrado para "{{ (albumsReducer$ | async)?.searchTerm }}"
+  </span>
+
+  <app-recents-searches></app-recents-searches>
+</div>

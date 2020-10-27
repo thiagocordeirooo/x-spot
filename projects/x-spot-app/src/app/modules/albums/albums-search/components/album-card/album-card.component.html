@@ -1,0 +1,12 @@
+<div class="album-card__root">
+  <img [src]="album?.images[0]?.url" [alt]="album.name" class="album-card__image" (click)="showAlbum()" />
+
+  <div class="album-card__details">
+    <span class="typography-5 typography-center">
+      {{ album?.name }}
+    </span>
+    <span class="typography-5 typography-secondary-color typography-center">
+      {{ album?.artists[0]?.name }}
+    </span>
+  </div>
+</div>

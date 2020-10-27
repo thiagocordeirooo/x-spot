@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "x-spot-lib": {
+      "projectType": "library",
+      "root": "projects/x-spot-lib",
+      "sourceRoot": "projects/x-spot-lib/src",
+      "prefix": "x-spot",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/x-spot-lib/tsconfig.lib.json",
+            "project": "projects/x-spot-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/x-spot-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/x-spot-lib/src/test.ts",
+            "tsConfig": "projects/x-spot-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/x-spot-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/x-spot-lib/tsconfig.lib.json",
+              "projects/x-spot-lib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "x-spot-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/x-spot-app",
+      "sourceRoot": "projects/x-spot-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/x-spot-app",
+            "index": "projects/x-spot-app/src/index.html",
+            "main": "projects/x-spot-app/src/main.ts",
+            "polyfills": "projects/x-spot-app/src/polyfills.ts",
+            "tsConfig": "projects/x-spot-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/x-spot-app/src/favicon.ico",
+              "projects/x-spot-app/src/assets"
+            ],
+            "styles": ["projects/x-spot-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/x-spot-app/src/environments/environment.ts",
+                  "with": "projects/x-spot-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "x-spot-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "x-spot-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "x-spot-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/x-spot-app/src/test.ts",
+            "polyfills": "projects/x-spot-app/src/polyfills.ts",
+            "tsConfig": "projects/x-spot-app/tsconfig.spec.json",
+            "karmaConfig": "projects/x-spot-app/karma.conf.js",
+            "assets": [
+              "projects/x-spot-app/src/favicon.ico",
+              "projects/x-spot-app/src/assets"
+            ],
+            "styles": ["projects/x-spot-app/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/x-spot-app/tsconfig.app.json",
+              "projects/x-spot-app/tsconfig.spec.json",
+              "projects/x-spot-app/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/x-spot-app/e2e/protractor.conf.js",
+            "devServerTarget": "x-spot-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "x-spot-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "244c30cd-1711-48d7-b06c-fcd8d6a8d3cf"
+  },
+  "defaultProject": "x-spot-lib"
+}

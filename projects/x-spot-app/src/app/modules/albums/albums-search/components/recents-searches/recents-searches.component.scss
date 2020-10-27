@@ -1,0 +1,14 @@
+.recents-searches__root {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+
+  .recents-searches__list {
+    display: flex;
+    overflow: auto;
+  }
+
+  .albums-search__empty {
+    margin: 16px;
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../../../../../../../x-spot-lib/src/styles/colors.scss";
+
+.input-album-search__root {
+  display: flex;
+  flex-direction: column;
+  color: $primary-text-color;
+
+  & > label {
+    padding-left: 4px;
+  }
+
+  & > input {
+    height: 64px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 32px;
+    color: $primary-text-color;
+    border-bottom: 1px solid $primary-text-color;
+  }
+}

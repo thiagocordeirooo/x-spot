@@ -1,0 +1,55 @@
+@import "./colors.scss";
+
+.typography {
+  color: $primary-text-color;
+
+  &-1 {
+    @extend .typography;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  &-2 {
+    @extend .typography;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  &-3 {
+    @extend .typography;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  &-4 {
+    @extend .typography;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &-5 {
+    @extend .typography;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  // colors
+  &-secondary-color {
+    @extend .typography;
+    color: $secondary-text-color;
+  }
+
+  // align
+  &-center {
+    @extend .typography;
+    text-align: center;
+  }
+  &-right {
+    @extend .typography;
+    text-align: right;
+  }
+
+  // ellipsis
+  &-ellipsis {
+    @extend .typography;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
